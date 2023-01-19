@@ -1,6 +1,9 @@
+import { EventEmitter } from "@angular/core";
 import { Recipe } from "./recipe.model";
 
 export class RecipeService {
+  recipeSelected = new EventEmitter<Recipe>(); // 레시피 데이터의 일부를 보유함 
+
   private recipes:Recipe[] = [
     new Recipe( 'A Test Recipe',
                 'This is simply a test.', 

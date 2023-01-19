@@ -10,9 +10,15 @@ import { RecipeService } from './recipe.service';
 })
 export class RecipesComponent implements OnInit {
   selectedRecipe: Recipe;
-  constructor() { }
+  constructor( private recipeService:RecipeService) { }
 
-  ngOnInit(): void {
+  ngOnInit() { // recipeSelected를 구독하여 변경사항에 대한 정보를 받는다.
+    this.recipeService.recipeSelected 
+    .subscribe(
+        (recipe:Recipe) => {
+          this.selectedRecipe = recipe
+        }
+    );
   }
 
 }
