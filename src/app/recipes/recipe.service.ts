@@ -1,4 +1,5 @@
 import { EventEmitter } from "@angular/core";
+import { Ingredient } from "../shared/ingredient.model";
 import { Recipe } from "./recipe.model";
 
 export class RecipeService {
@@ -7,10 +8,19 @@ export class RecipeService {
   private recipes:Recipe[] = [
     new Recipe( 'A Test Recipe',
                 'This is simply a test.', 
-                'https://assets.epicurious.com/photos/555b5db3644d45515b757513/1:1/w_2240,c_limit/56389541_pasta-alla-gricia_1x1.jpg'),
+                'https://assets.epicurious.com/photos/555b5db3644d45515b757513/1:1/w_2240,c_limit/56389541_pasta-alla-gricia_1x1.jpg',
+                [
+                  new Ingredient ('Meat', 100),
+                  new Ingredient ('noddle', 100),
+                  new Ingredient ('Tomato', 3)
+                ]),
     new Recipe('My Favorite Recipe',
                'This is one of the popular food.',
-               'https://assets.epicurious.com/photos/61f8150ca2bbc00670179f64/1:1/w_640,c_limit/CacciatoreBakedPasta_RECIPE_IG_012322_26052_VOG_final.jpg')
+               'https://assets.epicurious.com/photos/61f8150ca2bbc00670179f64/1:1/w_640,c_limit/CacciatoreBakedPasta_RECIPE_IG_012322_26052_VOG_final.jpg',
+               [
+                new Ingredient ('cheese', 2),
+                new Ingredient ('mashroom', 5)
+               ]),
   ];
 
   getRecipes(){

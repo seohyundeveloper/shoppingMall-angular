@@ -18,6 +18,14 @@ export class ShoppingListComponent implements OnInit {
   ngOnInit() {
     this.ingredients = this.slService.getIngredients(); 
     //여기서 재료를 할당해준다.
+    // 재료를 가져옴과 동시에 쇼핑 리스트 서비스에 접촉하여 
+    // ingredientChanged를 구독해준다.
+    this.slService.ingredientChanged
+        .subscribe(
+          (ingredients: Ingredient[])=> {
+            this.ingredients = ingredients; //구독한 재료를 넣어준다.
+          }
+        )
   }
 
   // onIngredientAdded(ingredient: Ingredient) {
