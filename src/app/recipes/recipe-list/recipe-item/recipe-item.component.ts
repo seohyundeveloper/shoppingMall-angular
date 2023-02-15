@@ -15,9 +15,9 @@ export class RecipeItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSelected(){
-  //  this.recipeSelected.emit();
-  this.recipeService.recipeSelected.emit(this.recipe);
-  // 선택된 아이템이자 전달하고자 하는 데이터임.
-  }
+  // onSelected(){
+  // //  this.recipeSelected.emit();
+  // this.recipeService.recipeSelected.emit(this.recipe);
+  // // 선택된 아이템이자 전달하고자 하는 데이터임.
+  // }
 }

@@ -33,6 +33,9 @@ export class RecipeService {
     return this.recipes.slice(); // 똑같은 복사본인 새배열을 반환함.
   }
 
+  getRecipe(index: number){
+    return this.recipes[index]; 
+  }
   addIngredientsToShoppingList(ingredients: Ingredient[]) {
     this.slService.addIngredients(ingredients);
   }
