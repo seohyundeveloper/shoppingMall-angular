@@ -9,7 +9,9 @@ import { RecipeService } from '../../recipe.service';
 })
 export class RecipeItemComponent implements OnInit {
 @Input() recipe: Recipe;
-// @Output() recipeSelected = new EventEmitter<void>()   //void 의 경우 어떤 정보도 전달하지 않을때 사용
+@Input() index:number; // 외부에서 아이템의 인덱스를 전달 할 수 있음. 
+// @Output() recipeSelected = new EventEmitter<void>()  
+     //void 의 경우 어떤 정보도 전달하지 않을때 사용
   constructor( private recipeService:RecipeService) { }
 
   ngOnInit(): void {

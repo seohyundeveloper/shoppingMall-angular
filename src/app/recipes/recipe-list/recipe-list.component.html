@@ -7,7 +7,9 @@
 <div class="row">
   <div class="col-xs-12">
     <app-recipe-item
-      *ngFor="let recipeEL of recipes"
-      [recipe]="recipeEL"></app-recipe-item><!-- (recipeSelected)="onRecipeSelected(recipeEL)" 서비스 사용으로 제거함.-->
+      *ngFor="let recipeEL of recipes; let i = index;"
+      [index]="i"
+      [recipe]="recipeEL"></app-recipe-item>
+      <!-- (recipeSelected)="onRecipeSelected(recipeEL)" 서비스 사용으로 제거함.-->
   </div>
 </div>
