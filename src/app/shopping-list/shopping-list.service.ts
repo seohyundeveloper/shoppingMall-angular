@@ -1,9 +1,10 @@
 import { EventEmitter } from "@angular/core";
 import { Ingredient } from "../shared/ingredient.model";
-
+import { Subject } from "rxjs";
 
 export class ShoppingListService {
-  ingredientChanged = new EventEmitter<Ingredient[]>(); // 재료 배열을 방출함.
+ // ingredientChanged = new EventEmitter<Ingredient[]>(); // 재료 배열을 방출함.
+  ingredientChanged = new Subject<Ingredient[]>();
   private  ingredients:Ingredient[] = [
     new Ingredient('Apple', 5),
     new Ingredient('Tomato', 10)
@@ -18,7 +19,8 @@ export class ShoppingListService {
 
   addIngredient(ingredient : Ingredient){
       this.ingredients.push(ingredient); //재료를 추가해주기
-      this.ingredientChanged.emit(this.ingredients.slice()); 
+      this.ingredientChanged.next(this.ingredients.slice()); 
+     // this.ingredientChanged.emit(this.ingredients.slice()); 
   }
 
   addIngredients(ingredients: Ingredient[]){
@@ -27,6 +29,7 @@ export class ShoppingListService {
     // }  // 반복문을 사용해도 괜찮지만, 불필요한 이벤트를 많이 방출하게 됨.
     // 따라서 모든 재료를 한번에 직접 추가하기
     this.ingredients.push(...ingredients); //배열에 문제없이 단일리스트가 푸쉬됨.
-    this.ingredientChanged.emit(this.ingredients.slice()); // 재료가 변경됨을 복사본으로 전달해준다.
+    this.ingredientChanged.next(this.ingredients.slice());
+   // this.ingredientChanged.emit(this.ingredients.slice()); // 재료가 변경됨을 복사본으로 전달해준다.
   }
 }
